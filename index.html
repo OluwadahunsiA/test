@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Карточки товара Webbooster</title>
+    <link rel="stylesheet" href="./styles/style.css">
+    <script src= 
+    "https://smtpjs.com/v3/smtp.js"> </script>
+    
+</head>
+
+<body>
+    <div class="header">
+        <div class="logo">
+            <img src="./images/logo.png" alt="">
+        </div>
+    </div>
+    <div class="products">
+        <div class="chair">
+            <img src="http://dev-wbooster.ru/test_task/img/img-1.png" alt="">
+            <p class="chair-text">Парикмахерское кресло<br> «Норм» гидравлическое</p>
+            <p class="price">9 900 ₽</p>
+            <div  class="button" data-modal-id="modal1">Купить</div>
+        </div>
+        <div class="chair">
+            <img src="http://dev-wbooster.ru/test_task/img/img-1.png" alt="">
+            <p class="chair-text">Парикмахерское кресло <br>«Норм» гидравлическое</p>
+            <p class="price">9 900 ₽</p>
+            <div class="button" data-modal-id="modal1">Купить</div>
+        </div>
+        <div class="chair">
+            <img src="http://dev-wbooster.ru/test_task/img/img-1.png" alt="">
+            <p class="chair-text">Парикмахерское кресло<br> «Норм» гидравлическое</p>
+            <p class="price">9 900 ₽</p>
+            <div  class="button" data-modal-id="modal1">Купить</div>
+        </div>
+        <div class="chair">
+            <img src="http://dev-wbooster.ru/test_task/img/img-1.png" alt="">
+            <p class="chair-text">Парикмахерское кресло<br> «Норм» гидравлическое</p>
+            <p class="price">9 900 ₽</p>
+            <div id ="modalBtn" class="button" data-modal-id="modal1">Купить</div>
+        </div>
+
+        
+
+  
+    </div>
+
+    <!-- Modal content -->
+    <div class="bg-modal">
+        <div class="modal-content">
+            <div class="close">+</div>
+            <img src="./images/logo.png" alt="logo">
+            <form id="modal_feedback" method="post" action="#"  accept-charset="UTF-8">
+                <input type="text" autofocus required size="48" name="name"
+                 value="" placeholder="Имя">
+  
+                 <input type="tel" required title="Please enter a valid email address"
+                  size="48" name="tel" value="" placeholder="Телефон">
+                
+                <input id= "email1" type="email" required title="Please enter a valid email address" 
+                size="48" name="email" value="" placeholder="Email">
+       
+                <input id= "product-name" type="text" size="48" name="subject" value="" placeholder="Название товара">
+                <p><input type="submit" name="feedbackForm" value="Отправить" onclick = "sendEmail()"></p>
+            </form>
+
+        </div>
+    </div>
+
+    <!-- Json -->
+    <div id="myData">
+        <div class="json-header">
+            <h1 >From Json File</h1>
+            <div id="content"></div>
+        </div>
+        
+    </div>
+
+    <script>
+fetch("product.json")
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (data) {
+    appendData(data);
+  })
+  .catch(function (err) {
+    console.log(err);
+  });
+
+
+function appendData(data){
+    var mainContainer = document.querySelector("#content");
+    for (var i = 0; i < data.product.length; i++) {
+        var div = document.createElement('div');
+        div.innerHTML = `
+        <div class = "eachItem">
+        <img src=${data.product[i].img}>
+        <p class="chair-text-json">${data.product[i].name} </p>
+        <h3 class = "price-json">${data.product[i].price} ₽ </h3>
+        </div>
+        <div class="button" data-modal-id="modal1">Купить</div>
+        `
+        mainContainer.appendChild(div);
+}
+}
+    </script>
+    <script src="modal.js"></script> 
+    
+  
+  <script type="text/javascript"> 
+    function sendEmail() { 
+      Email.send({ 
+        Host: "smtp.gmail.com",  
+        Username: "tommy@gmail.com", 
+        Password: "Enter your password", 
+        To: 'tommy@gmail.com', 
+        From: document.getElementById('email1').value, 
+        Subject:"Webbooster",
+        Body: document.getElementById('product-name').value, 
+      }) 
+        .then(function (message) { 
+          alert("mail sent successfully") 
+        }); 
+    } 
+  </script> 
+
+</body>
+</html>
+
+
+

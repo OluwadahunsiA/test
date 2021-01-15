@@ -1,0 +1,117 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  height: 140px;
+  width: 100%;
+  background-color: whitesmoke;
+}
+
+.products {
+  margin: 100px auto;
+  width: 80%;
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
+}
+
+.chair {
+  text-align: center;
+}
+
+.price {
+  margin-top: 10px;
+  /* text-align: center; */
+  font-size: larger;
+  font-weight: 700;
+}
+
+.button {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 40px;
+  background-color: red;
+  border-radius: 20px;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: green;
+}
+
+/* modal */
+
+.bg-modal {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  top: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+
+.modal-content {
+  width: 500px;
+  height: 500px;
+  background-color: white;
+  border-radius: 14px;
+  text-align: center;
+  padding: 20px;
+  position: relative;
+}
+
+input {
+  line-height: 50px;
+  margin-top: 15px;
+}
+
+input[type="submit"] {
+  display: inline-block;
+  padding: 10px 10px;
+  color: green;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.close {
+  position: absolute;
+  top: 0;
+  right: 14px;
+  font-size: 42px;
+  transform: rotate(45deg);
+  cursor: pointer;
+}
+
+/* JSON */
+
+.json-header {
+  text-align: center;
+  margin-top: 100px;
+}
+
+#content {
+  margin-top: 120px;
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
+}
+
+.eachItem {
+  text-align: center;
+}
+
+.chair-text-json {
+  max-width: 200px;
+}
+
+.price-json {
+  margin-top: 10px;
+}
